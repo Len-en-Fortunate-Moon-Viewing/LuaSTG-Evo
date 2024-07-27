@@ -394,7 +394,7 @@ namespace Core::Graphics
 		glBlitFramebuffer(
 			0, 0, m_canvas_size.x, m_canvas_size.y,
 			d.x, scale * m_canvas_size.y + d.y, scale * m_canvas_size.x + d.x, d.y,
-			GL_COLOR_BUFFER_BIT, GL_LINEAR
+			GL_COLOR_BUFFER_BIT, GL_NEAREST
 		);
 
 		if (!ex_fbos.empty())
