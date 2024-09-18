@@ -839,7 +839,7 @@ namespace Core::Graphics
                 break;
             case BlendState::Mul:
                 glEnable(GL_BLEND);
-                glBlendFuncSeparate(GL_ONE, GL_ZERO, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+                glBlendFuncSeparate(GL_DST_COLOR, GL_ZERO, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
                 glBlendEquationSeparate(GL_FUNC_ADD, GL_FUNC_ADD);
                 break;
             case BlendState::Screen:
@@ -1014,9 +1014,7 @@ namespace Core::Graphics
         }
 
         // assert(_draw_list.command.size > 0);
-        // DrawCommand& cmd_ = _draw_list.command.data[_draw_list.command.size - 1];
-        DrawCommand& cmd_ = _draw_list.command.data[_draw_list.command.size];
-        // _draw_list.command.size++;
+        DrawCommand& cmd_ = _draw_list.command.data[_draw_list.command.size - 1];
 
         *ppvert = _draw_list.vertex.data + _draw_list.vertex.size;
         _draw_list.vertex.size += nvert;
@@ -1167,7 +1165,7 @@ namespace Core::Graphics
             break;
         case BlendState::Mul:
             glEnable(GL_BLEND);
-            glBlendFuncSeparate(GL_ONE, GL_ZERO, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+            glBlendFuncSeparate(GL_DST_COLOR, GL_ZERO, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
             glBlendEquationSeparate(GL_FUNC_ADD, GL_FUNC_ADD);
             break;
         case BlendState::Screen:
